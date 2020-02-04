@@ -1,0 +1,336 @@
+@import url("https://fonts.googleapis.com/css?family=Inconsolata&display=swap");
+
+$text-color: #cedddd;
+$primary_text: #c4cfd2;
+$font: "Inconsolata", monospace;
+$button-transition-time: 0.3s;
+$desktop-social-icons-media-icon-transition: 0.5s;
+$background-clr: #10172e;
+$background-clr-light: #3b4154;
+$button-active-color: #2fbfba;
+$footer-clr: #0c1122;
+$hover-effect-delay: 0.8s;
+
+:root {
+  background-color: #10172e;
+  //   min-height: 100%;
+}
+html,
+body {
+  height: 100%;
+}
+
+.App {
+  text-align: center;
+  overflow-x: hidden;
+  //   min-height: 100%;
+}
+.section {
+  color: $text-color;
+  font-family: $font;
+  height: 100%; //changed this from 100%
+  display: flex;
+}
+
+.section-content {
+  max-width: 800px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 4% auto;
+  padding: 40px;
+}
+
+.particles {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  margin: auto;
+  font-family: $font;
+  color: $primary_text;
+}
+
+.intro h1 {
+  color: $primary_text;
+  font-size: 24px;
+  display: inline;
+  justify-content: end;
+  margin-bottom: 5px;
+  text-align: right;
+}
+hr {
+  border: 0;
+  height: 1px;
+  width: 100%;
+  //   height: 100%;
+  background: #333;
+  background-image: linear-gradient(
+    to right,
+    $button-active-color,
+    $background-clr-light,
+    $button-active-color
+  );
+  //   margin-bottom: 20px;
+}
+.intro h2 {
+  display: inline;
+  font-size: 64px;
+  color: $button-active-color;
+  width: 100%;
+  text-align: right;
+}
+.intro p {
+  //   text-decoration: underline;
+  display: inline-flex;
+  justify-content: flex-end;
+  margin-top: 5px;
+  font-size: 28px;
+}
+.profile-pic {
+  margin: 15px;
+  padding: 5px;
+  max-width: 250px;
+  max-height: 250px;
+  border-radius: 50%;
+  border: 1px solid $button-active-color;
+}
+.text {
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 25px 0px 25px 30px;
+}
+.section-content h1 {
+  font-family: $font;
+  font-size: 32px;
+  margin-bottom: 0px;
+}
+
+.section-content p {
+  font-family: $font;
+  font-size: 16px;
+}
+
+.text {
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.text > .company {
+  align-content: right;
+  width: 100%;
+}
+
+.text > .company > h1 {
+  text-align: right;
+  width: 100%;
+  font-family: $font;
+  font-size: 24px;
+  text-decoration: underline;
+  word-spacing: -10px;
+  margin: auto;
+}
+.text > .company > p {
+  text-align: right;
+  margin: auto;
+  word-spacing: -5px;
+}
+// .text > .company > .experience-description {
+//   background: white;
+//   width: 100%;
+// }
+
+.text ul li {
+  padding: 5px;
+  font-family: $font;
+  font-size: 16px;
+}
+.email-button {
+  color: $button-active-color;
+}
+.text ul {
+  margin: 0px 0px 15px 15px;
+}
+.email-button a {
+  cursor: pointer;
+
+  font-family: $font;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: inline-block;
+  text-align: center;
+  width: 90px;
+  font-weight: bold;
+  padding: 8px 25px;
+  border: 3px solid $button-active-color;
+  border-radius: 2px;
+  //   text-decoration: none;
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s ease all;
+  &:hover {
+    color: $primary_text;
+    border: 3px solid $primary_text;
+  }
+  &:focus {
+    color: $primary_text;
+    border: 3px solid $primary_text;
+  }
+}
+
+.arrow-container {
+  padding-bottom: 30px;
+}
+/* Arrow & Hover Animation */
+#more-arrows {
+  width: 75px;
+  height: 65px;
+
+  &:hover {
+    polygon {
+      fill: $button-active-color;
+      transition: all 0.2s ease-out;
+
+      &.arrow-bottom {
+        transform: translateY(-18px);
+      }
+
+      &.arrow-top {
+        transform: translateY(18px);
+      }
+    }
+  }
+}
+
+polygon {
+  fill: $button-active-color;
+  transition: all 0.2s ease-out;
+
+  &.arrow-middle {
+    opacity: 0.75;
+  }
+
+  &.arrow-top {
+    opacity: 0.5;
+  }
+}
+
+.section-content > .experience {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+@media (min-width: 511px) {
+  .section > .section-content > #desktop-only {
+    display: flex;
+    flex-direction: row;
+    //   align-self: center;
+    height: 100%;
+    align-content: center;
+  }
+}
+@media only screen and (max-width: 511px) {
+  .intro {
+    display: inline-flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    width: 60%;
+    font-family: $font;
+    color: $primary_text;
+    text-align: right;
+  }
+
+  .intro h1 {
+    color: $primary_text;
+    font-size: 18px;
+    display: inline;
+    justify-content: center;
+    margin-bottom: 5px;
+  }
+
+  .intro h2 {
+    display: inline-flex;
+    justify-content: center;
+    margin: 0.4em auto;
+    font-size: 52px;
+    width: 100%;
+    color: $button-active-color;
+  }
+  .intro p {
+    display: inline-flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+    font-size: 22px;
+  }
+  .arrow-container {
+    padding-bottom: 70px;
+  }
+  .section {
+    color: $text-color;
+    font-family: $font;
+    height: 100%; //changed this from 100%
+    display: flex;
+  }
+
+  .section-content {
+    max-width: 350px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 10% auto;
+    padding: 40px;
+  }
+  .section-content div {
+    max-width: 350px;
+  }
+  .section-content h1 {
+    font-family: $font;
+    font-size: 24px;
+  }
+
+  .section-content p {
+    font-family: $font;
+    font-size: 16px;
+  }
+
+  .profile-pic {
+    padding: 10px;
+    max-width: 250px;
+    // border: 1px solid $button-active-color;
+    border-radius: 50%;
+  }
+  .text {
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .text ul li {
+    padding: 5px;
+    font-family: $font;
+    font-size: 16px;
+  }
+  .text ul {
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+  }
+}
