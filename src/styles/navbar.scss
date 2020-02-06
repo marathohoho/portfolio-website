@@ -10,8 +10,12 @@ $button-active-color: #2fbfba;
 $footer-clr: #0c1122;
 $hover-effect-delay: 0.8s;
 
-.nav {
+.nav-content {
   background-color: $background-clr;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   position: fixed;
   transition: top 0.3s;
   opacity: 1;
@@ -24,7 +28,12 @@ $hover-effect-delay: 0.8s;
   box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.28);
 }
 
-.nav-logo {
+nav .nav-logo {
+  display: flex;
+  justify-content: flex-start;
+  width: 40%;
+}
+nav .nav-logo img {
   width: 50px;
   height: 50px;
 }
@@ -32,16 +41,18 @@ $hover-effect-delay: 0.8s;
   cursor: pointer;
 }
 
-#nav-content .nav-items {
+.nav-content .nav-items ul {
   font-family: $font;
   font-size: 14px;
   max-width: 100%;
   padding: 0rem 3rem;
-  margin: 0 auto;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   height: 100%;
+}
+nav .hamburger-menu {
+  display: block;
 }
 
 .nav-item {
@@ -211,7 +222,7 @@ a.resume-button {
   transform: rotate(0deg);
 }
 
-#nav-content input {
+.nav-content input {
   display: none;
 }
 
@@ -233,12 +244,16 @@ a.resume-button {
   padding: auto;
   margin: 10px;
 }
+
 @media only screen and (max-width: 511px) {
   body {
     overflow-x: hidden; /* needed because hiding the menu on the right side is not perfect,  */
   }
+
   nav {
-    position: absolute;
+    display: flex;
+    flex-direction: column;
+    position: relative;
     transition: top 0.3s;
     text-align: center;
     opacity: 1;
@@ -250,22 +265,25 @@ a.resume-button {
     -webkit-box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.28);
     box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.28);
   }
-
-  .nav .ancher-link {
+  nav .ancher-link {
     text-decoration: none;
     color: $primary_text;
 
     transition: color 0.3s ease;
   }
-
-  .nav .ancher-link:hover {
+  nav .hamburger-menu {
+    display: block;
+    width: 33px;
+    height: 22px;
+  }
+  nav .ancher-link:hover {
     color: $button-active-color;
   }
 
-  #nav-content {
+  nav .nav-content {
     display: block;
     position: absolute;
-
+    margin-right: 500px;
     right: 30px;
     z-index: 1;
 
@@ -273,12 +291,14 @@ a.resume-button {
     user-select: none;
   }
 
-  #nav-content input {
+  .nav-content input {
     display: block;
     margin: auto;
-    width: 40px;
+    width: 32px;
     height: 32px;
     position: absolute;
+    right: 0px;
+    margin-right: 45px;
 
     cursor: pointer;
 
@@ -292,15 +312,26 @@ a.resume-button {
     user-select: none;
   }
 
-  #nav-content span {
+  #hamburger-menu {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin-right: 45px;
+    // padding-right: 40px;
+    right: 0px;
+  }
+
+  #hamburger-menu span {
     display: block;
     width: 33px;
     height: 4px;
-    margin-right: 50px;
+    right: 0px;
+    // margin-right: 50px;
     margin-bottom: 5px;
     position: relative;
     background: $button-active-color;
     border-radius: 3px;
+    // margin-right: 20%;
 
     z-index: 1;
 
@@ -315,49 +346,54 @@ a.resume-button {
     user-select: none;
   }
 
-  #nav-content span:first-child {
+  nav .hamburger-menu span:first-child {
     transform-origin: 0% 0%;
   }
 
-  #nav-content span:nth-last-child(2) {
+  nav .hamburger-menu span:nth-last-child(2) {
     transform-origin: 0% 100%;
   }
 
-  #nav-content input:checked ~ span {
+  nav .hamburger-menu input:checked ~ span {
     opacity: 1;
-    transform: rotate(45deg) translate(-2px, -1px);
+    transform: rotate(-45deg) translate(-2px, -1px);
     background: $button-active-color;
   }
 
-  #nav-content input:checked ~ span:nth-last-child(3) {
-    opacity: 0;
-    transform: rotate(0deg) scale(0.2, 0.2);
-  }
-
-  #nav-content input:checked ~ span:nth-last-child(2) {
+  nav .hamburger-menu input:checked ~ span:nth-last-child(3) {
     opacity: 1;
-    transform: rotate(-45deg) translate(0, -1px);
+    transform: rotate(45deg) translate(2px, -1px); // scale(0.2, 0.2);
   }
 
-  #nav-content ul {
+  nav .hamburger-menu input:checked ~ span:nth-last-child(2) {
+    opacity: 0;
+    transform: rotate(0deg) translate(-20px, -1px);
+  }
+
+  #nav-items ul {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
     position: fixed;
     width: 50%;
-    margin: -100px 0 0 0;
-    padding: 50px;
-    padding-top: 125px;
-    right: -0px;
-    height: 100%;
-    background-color: $background-clr-light;
 
+    margin: -100px 0 0 0;
+    // // padding: 50px;
+    // padding-top: 125px;
+    right: -0px;
+    // height: 100%;
+    background-color: $background-clr-light;
+    // font-size: 14px;
+    // max-width: 100%;
+    height: 100vh;
+    padding: 0rem 3rem;
+    top: 100px;
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
 
     transform-origin: 0% 0%;
-    transform: translate(100%, 0);
+    transform: translate(100%, 0%);
 
     transition: transform 0.65s cubic-bezier(0.77, 0.2, 0.05, 1);
   }
@@ -374,20 +410,9 @@ a.resume-button {
     margin: 30px auto;
   }
 
-  #nav-content input:checked ~ ul {
+  #hamburger-menu input:checked ~ .nav-content .nav-items ul {
     transform: scale(1, 1);
     opacity: 1;
-  }
-  #nav-content .nav-items {
-    font-family: $font;
-    font-size: 14px;
-    max-width: 100%;
-    padding: 0rem 3rem;
-    top: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
   }
 
   @keyframes navlinkFade {

@@ -12,7 +12,9 @@ import Experience from "./components/Experience";
 
 function App() {
   let prevScrollPos = window.pageYOffset;
-
+  window.onresize = () => {
+    document.getElementById("side-bar").style.transform = "";
+  };
   window.onscroll = () => {
     let currentScrollPos = window.pageYOffset;
 
@@ -20,6 +22,7 @@ function App() {
       document.getElementById("navbar").style.top = "0";
     } else if (currentScrollPos - prevScrollPos > 17) {
       document.getElementById("navbar").style.top = "-110px";
+      document.getElementById("side-bar-input").checked = false;
     }
     prevScrollPos = currentScrollPos;
   };
